@@ -13,6 +13,6 @@ export default () => {
   },[StateApp]);
 
   return (
-    <Button>{StateApp.count}</Button>
+    <Button>{StateApp.b1.b2.a3}</Button>
   );
 };

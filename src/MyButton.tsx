@@ -13,12 +13,12 @@ export default (props: { async: boolean }) => {
 
   useEffect(() => {
     // 每次 render 完一定执行
-    console.log("MyButton re-rendered", StateApp.count);
+    console.log("MyButton re-rendered", StateApp.b1.b2.a3);
   }, [StateApp]);
   const text = props.async ? "async" : "sync";
   return (
     <Button type="primary" onClick={clickHandler}>
-      {text} state count is: {StateApp.count}
+      {text} state count is: {StateApp.b1.b2.a3}
     </Button>
   );
 };

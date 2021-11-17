@@ -13,12 +13,14 @@ function App() {
   const state = reactive({ count: 0 });
 
   const inputProperty = {
-    value: StateApp.other,
+    value: StateApp.b1.b2.b3,
     style: { color: "red", width: "100px" },
-    onInput: (e: React.FormEvent<HTMLInputElement>) =>
-      (StateApp.other = e.currentTarget.value),
+    onInput: (e: React.FormEvent<HTMLInputElement>) => StateApp.b1.b2.b3 = e.currentTarget.value,
   };
-  
+
+  useEffect(() => {
+    console.log(StateApp.b1.b2.b3);
+  })
 
 
   return (
@@ -29,7 +31,7 @@ function App() {
         <MyButton async={false} />
         <MyButton async={true} />
         <h1 className="demo-title">
-          {JSON.stringify(AppBus("StateApp"))}StateApp.count: {StateApp.count}
+          {JSON.stringify(AppBus("StateApp"))}StateApp.b1.b2.a3: {StateApp.b1.b2.a3}
         </h1>
         <MyButton2 />
       </header>
