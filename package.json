@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "bs": "npm i",
-    "start": "vite --open --host",
+    "start": "npm run bs && vite --open --host",
     "build": "tsc && vite build",
     "serve": "vite preview"
   },

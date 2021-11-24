@@ -6,10 +6,10 @@ import { AppBus, reactive } from "l_common";
 import { useEffect } from "react";
 
 function App() {
-  const StateApp = useStateApp();
+  const StateApp:t_StateApp = useStateApp();
   AppBus("StateApp", StateApp);
 
-
+  
   const state = reactive({ count: 0 });
 
   const inputProperty = {
