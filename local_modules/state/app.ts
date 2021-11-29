@@ -1,18 +1,21 @@
 import { reactive } from "l_common";
+import _ from "lodash";
 
 let state_app = {
+  isLoading: false,
   a1: 0,
   b1: {
     a2: 0,
     b2: {
       a3: 0,
-      b3: ""
-    }
-  }
+      b3: "",
+    },
+  },
 };
 
 export type t_StateApp = typeof state_app;
 export function useStateApp() {
+  /* 重新赋值 */
   state_app = reactive(state_app);
   return state_app;
 }
@@ -22,11 +25,13 @@ useStateApp.actions = {
     state_app.b1.b2.a3++;
   },
 };
-
+const addCount = _.debounce(() => {
+  state_app.b1.b2.a3++;
+  state_app.isLoading = false;
+}, 1000);
 useStateApp.mutations = {
   addCount() {
-    setTimeout(() => {
-      state_app.b1.b2.a3++;
-    }, 1000 * 2);
+    state_app.isLoading = true;
+    setTimeout(addCount, 1000 * 2);
   },
 };

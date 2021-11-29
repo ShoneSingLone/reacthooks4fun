@@ -57,6 +57,10 @@ function TextInputWithFocusButton() {
 }
 ```
 
+## 设计原则
+
+状态改变导致UI变化，更加纯粹
+
 ## xItem
 
 ## datagrid
