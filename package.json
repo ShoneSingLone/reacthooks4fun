@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@alicloudfe/components": "^1.2.14",
+    "jquery": "^3.6.0",
     "l_common": "file:./local_modules/common",
     "l_components": "file:./local_modules/components",
     "l_state": "file:./local_modules/state",

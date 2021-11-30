@@ -7,10 +7,10 @@ function ButtonLabel(prop: any) {
   return <span style={{ color }}>{count}</span>;
 }
 
-export function CountLable() {
+export function CountLable(props: { style: object }) {
   const [count, setCount] = useState(0);
   return (
-    <div>
+    <div {...props}>
       <Button onClick={() => setCount(count + 1)}>
         <ButtonLabel count={count} />
       </Button>

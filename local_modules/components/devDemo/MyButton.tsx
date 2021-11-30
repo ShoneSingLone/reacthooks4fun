@@ -1,15 +1,15 @@
-import { Button } from "@alicloudfe/components";
-
 import { t_StateApp, useStateApp } from "l_state/app";
-import { AppBus } from "l_common";
+import { aBus } from "l_common";
 import { useEffect } from "react";
+import { Button } from "@alicloudfe/components";
 
 export default (props: { async: boolean }) => {
   const clickHandler = props.async
     ? useStateApp.mutations.addCount
     : useStateApp.actions.addCount;
 
-  const StateApp = AppBus<t_StateApp>("StateApp");
+  /* 下车 */
+  const StateApp = aBus<t_StateApp>("StateApp");
 
   useEffect(() => {
     // 每次 render 完一定执行

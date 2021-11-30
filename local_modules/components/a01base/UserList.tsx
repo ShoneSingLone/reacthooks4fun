@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function UserList() {
+export function UserList(props: { style: object }) {
   // 使用三个 state 分别保存用户列表，loading 状态和错误状态
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ export function UserList() {
     setLoading(false);
   };
   return (
-    <div className="user-list">
+    <div className="user-list" {...props}>
       <button onClick={fetchUsers} disabled={loading}>
         {loading ? "Loading..." : "Show Users"}
       </button>

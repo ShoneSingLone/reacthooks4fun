@@ -2,7 +2,8 @@ import { useState } from "react";
 import { isInput } from "./validate";
 import _ from "lodash";
 
-export function reactive(state: any): typeof state {
+/* 不接受原始类型的参数 */
+export function reactive(state: object) {
   const [reactState, setReactState] = useState(state);
   const handler = {
     get: (obj: any, prop: string): any => {
@@ -26,7 +27,8 @@ export function reactive(state: any): typeof state {
 const AppBusCollection: { [prop: string]: any } = {};
 
 /* TODO:必须填入泛型 */
-export function AppBus<T>(key: string, value?: any): T {
+/* 全局总线,理解为bus也可以;四处运东西,想去哪去哪 */
+export function aBus<T>(key: string, value?: any): T {
   /* set */
   if (key && isInput(value)) {
     AppBusCollection[key] = value;

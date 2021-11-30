@@ -1,6 +1,8 @@
 # [reacthooks4fun](https://shonesinglone.github.io/reacthooks4fun/)
 
-# NOTE
+## [Fake Data API](https://reqres.in/)
+
+## NOTE
 
 ![hooks学习只是图谱](./public/a.png)
 
@@ -11,13 +13,13 @@ Hooks 带来的最大好处：逻辑复用
 ## useEffect
 
 - 每次 render 后执行：不提供第二个依赖项参数。比如
-useEffect(() => {})。
+`useEffect(() => {})`
 - 仅第一次 render 后执行：提供一个空数组作为依赖项。比如
-useEffect(() => {}, [])。//onece
+`useEffect(() => {}, [])。//onece`
 - 第一次以及依赖项发生变化后执行：提供依赖项数组。比如
-useEffect(() => {}, [deps])。//watch
+`useEffect(() => {}, [deps])。//watch`
 - 组件 unmount 后执行：返回一个回调函数。比如
-useEffect() => { return () => {} }, [])。
+`useEffect() => { return () => {} }, [])`
 
 依赖项中定义的变量一定是会在回调函数中用到的，否则声明依赖项其实是没有意义的。
 依赖项一般是一个常量数组，而不是一个变量。因为一般在创建 callback 的时候，你其实非常清楚其中要用到哪些依赖项了。

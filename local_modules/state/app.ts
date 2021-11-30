@@ -4,6 +4,7 @@ import _ from "lodash";
 /* NOTICE:singleton !!!  */
 /* NOTICE:singleton !!!  */
 /* NOTICE:singleton !!!  */
+
 let state_app = {
   isLoading: false,
   append: { append: "" },
