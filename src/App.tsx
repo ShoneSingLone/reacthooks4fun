@@ -23,7 +23,7 @@ function App() {
     style: { color: "green", width: "100px" },
     onInput: (e: React.FormEvent<HTMLInputElement>) => {
       StateApp.b1.b2.b3 = e.currentTarget.value;
-      /* 可以动态追加，但是不推荐 */
+      /* 可以动态追加(不提前在StateApp中声明)，但是不推荐 */
       StateApp.append = { append: e.currentTarget.value };
     },
   };

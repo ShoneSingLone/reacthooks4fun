@@ -13,7 +13,7 @@ export function UserList() {
       const json = await res.json();
       // 请求成功后将用户数据放入 state
       setUsers(json.data);
-    } catch (err) {
+    } catch (err: any) {
       // 请求失败将错误状态放入 state
       setError(err);
     }

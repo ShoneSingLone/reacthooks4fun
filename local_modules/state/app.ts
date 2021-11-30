@@ -6,6 +6,7 @@ import _ from "lodash";
 /* NOTICE:singleton !!!  */
 let state_app = {
   isLoading: false,
+  append: { append: "" },
   a1: 0,
   b1: {
     a2: 0,
