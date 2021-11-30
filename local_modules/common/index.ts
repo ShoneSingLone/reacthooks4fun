@@ -9,7 +9,7 @@ export function reactive(state: any): typeof state {
       const target = obj[prop];
       if (_.isPlainObject(target)) {
         /* 代理嵌套子对象 */
-        return new Proxy(target, handler)
+        return new Proxy(target, handler);
       }
       return target;
     },
@@ -20,8 +20,7 @@ export function reactive(state: any): typeof state {
     },
   };
   /* reactiveState */
-  const _state: typeof state = new Proxy(reactState, handler);
-  return _state;
+  return new Proxy(reactState, handler);
 }
 
 const AppBusCollection: { [prop: string]: any } = {};

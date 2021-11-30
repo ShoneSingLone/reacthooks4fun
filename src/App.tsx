@@ -19,10 +19,13 @@ function App() {
   const state = reactive({ count: 0 });
 
   const inputProperty = {
-    value: StateApp.b1.b2.b3,
+    value: `${StateApp.b1.b2.b3}`,
     style: { color: "green", width: "100px" },
-    onInput: (e: React.FormEvent<HTMLInputElement>) =>
-      (StateApp.b1.b2.b3 = e.currentTarget.value),
+    onInput: (e: React.FormEvent<HTMLInputElement>) => {
+      StateApp.b1.b2.b3 = e.currentTarget.value;
+      /* 可以动态追加，但是不推荐 */
+      StateApp.append = { append: e.currentTarget.value };
+    },
   };
 
   const size = useWindowSize();
@@ -33,16 +36,27 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
+        <h2>
+          StateApp.append:
+          <input {...inputProperty} />
+          {StateApp.append && StateApp.append.append}
+        </h2>
+
         <CountLable />
         <UserList />
         <div className="flex middle">
           <button onClick={() => state.count++}>{state.count}</button>
           <div>
             StateApp.isLoading{StateApp.isLoading ? "..." : "done"}
-            <button onClick={() => useStateApp.actions.addCount()}> {StateApp.b1.b2.a3} </button>
-            <button onClick={() => useStateApp.mutations.addCount()}> {state.count} </button>
+            <button onClick={() => useStateApp.actions.addCount()}>
+              {" "}
+              {StateApp.b1.b2.a3}{" "}
+            </button>
+            <button onClick={() => useStateApp.mutations.addCount()}>
+              {" "}
+              {state.count}{" "}
+            </button>
           </div>
-          <input {...inputProperty} />
           <MyButton async={false} />
           <MyButton async={true} />
         </div>
