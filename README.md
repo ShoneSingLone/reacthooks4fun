@@ -63,6 +63,64 @@ function TextInputWithFocusButton() {
 
 状态改变导致UI变化，更加纯粹
 
+### 状态最小化原则
+
+即Vue的计算属性用useMemo自己实现
+
+### 避免中间状态，确保唯一数据源
+
+比如，参数都是根据URL上的来，不管多少次，结果都应该是一致的。单向数据流 url变化=>watch=>setState=>UI change=>event=>url=>...
+
+## API Client
+
+- 拦截
+  - 一些通用的 Header。比如 Authorization Token。
+  - 请求未认证的处理。比如如果 Token 过期了，需要有一个统一的地方进行处理，这时就会弹出对话框提示用户重新登录。
+- 服务器地址的配置。前端在开发和运行时可能会连接不同的服务器，比如本地服务器或者测试服务器，此时这个 API Client 内部可以根据当前环境判断该连接哪个 URL。
+- 方法
+- 参数
+
+```js
+import axios from "axios";
+// 定义相关的 endpoint
+const endPoints = {
+  test: "https://60b2643d62ab150017ae21de.mockapi.io/",
+  prod: "https://prod.myapi.io/",
+  staging: "https://staging.myapi.io/"
+};
+// 创建 axios 的实例
+const instance = axios.create({
+  // 实际项目中根据当前环境设置 baseURL
+  baseURL: endPoints.test,
+  timeout: 30000,
+  // 为所有请求设置通用的 header
+  headers: { Authorization: "Bear mytoken" }
+});
+
+// 定义拦截器预处理所有请求
+instance.interceptors.response.use(
+  (res) => {
+    // 可以假如请求成功的逻辑，比如 log
+    return res;
+  },
+  (err) => {
+    if (err.response.status === 403) {
+      // 统一处理未授权请求，跳转到登录界面
+      document.location = '/login';
+    }
+    return Promise.reject(err);
+  }
+);
+export default instance;
+```
+
+### Hooks的应用思路
+
+hooks提供状态，逻辑处理都封装在内部
+
+hooks组件中只根据数据状态来做视图的展示
+
+
 ## xItem
 
 ## datagrid

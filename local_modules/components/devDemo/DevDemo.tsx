@@ -1,11 +1,13 @@
 import MyButton from "./MyButton";
 import MyButton2 from "./MyButton2";
-import { useStateApp } from "l_state/app";
+import { t_StateApp, useStateApp } from "l_state/app";
 import { aBus, reactive } from "l_common";
 import { CountLable } from "l_components/a01base/CountLabel";
 import { UserList } from "l_components/a01base/UserList";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useWindowSize } from "l_common/hooks/useWindowSize";
+import { Dialog, t_dialogDefaultState } from "l_common/dialog";
+import { Button } from "@alicloudfe/components";
 
 type t_state = {
   count: number;
@@ -15,6 +17,21 @@ function addCount(state: t_state) {
   state.count++;
 }
 
+function body({ Wrapper, props }: any) {
+  const StateApp: t_StateApp = useStateApp();
+
+  return (
+    <Button
+      onClick={() => {
+        useStateApp.actions.addCount();
+      }}
+    >
+      {StateApp.a1}
+      {StateApp.b1.b2.a3}
+    </Button>
+  );
+}
+
 export function DevDemo() {
   /* App级别的数据 redux一些列状态管理器*/
   const StateApp = useStateApp();
@@ -22,6 +39,10 @@ export function DevDemo() {
   /* 多次调用只会影响最后一次调用的Hooks渲染的内容，不会触发其他的组件，所以只能放在root组件的Hooks中调用 */
   /* 上车 */
   aBus("StateApp", StateApp);
+
+  useEffect(() => {
+    setInterval(() => StateApp.a1++, 1000);
+  }, []);
 
   const state = reactive({ count: 0 });
   const size = useWindowSize();
@@ -54,6 +75,23 @@ export function DevDemo() {
   return (
     <div className="App">
       <div className="App-header">
+        <div {...divStyle}>
+          <Button
+            onClick={() => {
+              const wrapper = Dialog.open({
+                props: { StateApp },
+                title: "Demo",
+                body,
+                onOk() {
+                  console.log(wrapper.subState.a1);
+                },
+              });
+            }}
+          >
+            open dialog
+          </Button>
+        </div>
+
         <div {...divStyle}>
           StateApp.append:
           <input {...inputProperty} />
