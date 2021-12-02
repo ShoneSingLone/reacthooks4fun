@@ -12,8 +12,8 @@
     "jquery": "^3.6.0",
     "l_common": "file:./src/common",
     "l_components": "file:./src/components",
-    "l_state": "file:./src/state",
     "l_modules": "file:./src/modules",
+    "l_state": "file:./src/state",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react": "^16.14.0",
@@ -21,10 +21,12 @@
     "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.9",
     "@types/lodash": "^4.14.177",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
     "@vitejs/plugin-react": "^1.0.0",
+    "less": "^4.1.2",
     "typescript": "^4.3.2",
     "vite": "^2.6.4"
   }

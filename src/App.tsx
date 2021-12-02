@@ -15,7 +15,7 @@ import { aBus, reactive } from "l_common";
 import { Button } from "@alicloudfe/components";
 import { ConsoleNav } from "l_modules/console/ConsoleNav";
 import { ConsoleMain } from "l_modules/console/ConsoleMain";
-import "./App.css";
+import "./App.less";
 
 const routes = [];
 

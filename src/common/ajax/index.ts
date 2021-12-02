@@ -7,7 +7,7 @@ const METHODS = {
   GET: "GET",
 };
 
-const ajaxOptions = (options, customOptions) => {
+const ajaxOptions = (options: object, customOptions: object) => {
   /* 
   const data = ((isPost) => {
     if (isPost) {
@@ -37,13 +37,13 @@ const ajaxOptions = (options, customOptions) => {
       },
     },
     options,
-    customOptions,
+    customOptions
   );
 };
 
 /* https://api.jquery.com/jQuery.ajax/ */
 export const ajax = {
-  get: (url, options) =>
+  get: (url: string, options: object) =>
     new Promise((resolve, reject) =>
       $.ajax(
         ajaxOptions(
@@ -57,7 +57,7 @@ export const ajax = {
         )
       )
     ),
-  post: (url, options) =>
+  post: (url: string, options: object) =>
     new Promise((resolve, reject) =>
       $.ajax(
         ajaxOptions(

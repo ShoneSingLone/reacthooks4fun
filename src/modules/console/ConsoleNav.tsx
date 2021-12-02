@@ -22,19 +22,17 @@ export let routes: RouteObject[] = [
 
 export function ConsoleNav() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/courses">Courses</Link>
-        </li>
-        <li>
-          <Link to="/nothing-here">Nothing Here</Link>
-        </li>
-      </ul>
-    </nav>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/courses">Courses</Link>
+      </li>
+      <li>
+        <Link to="/nothing-here">Nothing Here</Link>
+      </li>
+    </ul>
   );
 }
 
@@ -48,10 +46,10 @@ function Home() {
 
 function Courses() {
   return (
-    <div>
+    <>
       <h2>Courses</h2>
       <Outlet />
-    </div>
+    </>
   );
 }
 
