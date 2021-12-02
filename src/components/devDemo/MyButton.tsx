@@ -8,7 +8,7 @@ export default (props: { async: boolean }) => {
     ? useStateApp.mutations.addCount
     : useStateApp.actions.addCount;
 
-  /* 下车 */
+  /* 观光 */
   const StateApp = aBus<t_StateApp>("StateApp");
 
   useEffect(() => {

@@ -8,7 +8,8 @@ const METHODS = {
 };
 
 const ajaxOptions = (options, customOptions) => {
-  /* const data = ((isPost) => {
+  /* 
+  const data = ((isPost) => {
     if (isPost) {
       return JSON.stringify(options.data || {});
     } else {
@@ -19,7 +20,8 @@ const ajaxOptions = (options, customOptions) => {
         return _.map(options.data, (value, key) => `${key}=${value}`).join("&");
       }
     }
-  })(options.type === METHODS.POST); */
+  })(options.type === METHODS.POST); 
+  */
 
   return _.merge(
     {

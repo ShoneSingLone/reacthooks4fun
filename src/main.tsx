@@ -1,5 +1,12 @@
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { render } from "react-dom";
 import { App } from "./App";
 import "@alicloudfe/components/dist/hybridcloud.css";
-/* ReactDOM.render( <React.StrictMode> <App /> </React.StrictMode>, document.getElementById("root") ); */
-render(<App />, document.getElementById("root"));
+/* <React.StrictMode>  */
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);

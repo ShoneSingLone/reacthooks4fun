@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src", "local_modules/state"]
+  "include": ["./src", "local_modules/state", "local_modules/components/devDemo/App.tsx"]
 }

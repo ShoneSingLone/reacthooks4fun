@@ -35,10 +35,17 @@ function body({ Wrapper, props }: any) {
 export function DevDemo() {
   /* App级别的数据 redux一些列状态管理器*/
   const StateApp = useStateApp();
+  debugger;
   console.log("🚀 ~ file: App.tsx ~ line 14 ~ App ~ StateApp", StateApp);
   /* 多次调用只会影响最后一次调用的Hooks渲染的内容，不会触发其他的组件，所以只能放在root组件的Hooks中调用 */
   /* 上车 */
-  aBus("StateApp", StateApp);
+  useEffect(() => {
+    aBus("StateApp", StateApp);
+    return () => {
+      debugger;
+      aBus.remove("StateApp");
+    };
+  }, []);
 
   useEffect(() => {
     setInterval(() => StateApp.a1++, 1000);

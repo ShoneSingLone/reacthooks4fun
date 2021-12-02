@@ -10,13 +10,15 @@
   "dependencies": {
     "@alicloudfe/components": "^1.2.14",
     "jquery": "^3.6.0",
-    "l_common": "file:./local_modules/common",
-    "l_components": "file:./local_modules/components",
-    "l_state": "file:./local_modules/state",
+    "l_common": "file:./src/common",
+    "l_components": "file:./src/components",
+    "l_state": "file:./src/state",
+    "l_modules": "file:./src/modules",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.177",

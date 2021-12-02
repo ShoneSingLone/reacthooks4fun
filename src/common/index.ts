@@ -46,8 +46,16 @@ export function aBus<T>(key: string, value?: any): T {
     AppBusCollection[key] = value;
   }
   /* get */
-  return AppBusCollection[key];
+  const target = AppBusCollection[key];
+  if (!isInput(target)) {
+    alert("useState的调用节点有误！");
+  }
+  return target;
 }
+
+aBus.remove = (key: string) => {
+  delete AppBusCollection[key];
+};
 
 genId.idCount = 1;
 genId.ID_COUNT_MAX = 40000;
@@ -60,3 +68,6 @@ export function genId(category: string): string {
   }
   return `${category}_${genId.DATE_NOW}_${genId.idCount++}`;
 }
+
+export const _sleep = (timeout: number) =>
+  new Promise((r) => setTimeout(r, timeout));
