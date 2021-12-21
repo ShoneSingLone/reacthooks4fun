@@ -23,7 +23,7 @@ function body({ Wrapper, props }: any) {
   return (
     <Button
       onClick={() => {
-        useStateApp.actions.addCount();
+        useStateApp.mutations.addCount();
       }}
     >
       {StateApp.a1}
@@ -123,15 +123,15 @@ export function DevDemo() {
             <div>
               StateApp.b1.b2.a3: <span>{StateApp.b1.b2.a3}</span>
             </div>
-            <button onClick={() => useStateApp.actions.addCount()}>
-              {"useStateApp.actions.addCount"}
+            <button onClick={() => useStateApp.mutations.addCount()}>
+              {"useStateApp.mutations.addCount"}
             </button>
           </div>
           <button
-            onClick={() => useStateApp.mutations.addCount()}
+            onClick={() => useStateApp.actions.addCount()}
             disabled={StateApp.isLoading}
           >
-            {"useStateApp.mutations.addCount"}
+            {"useStateApp.actions.addCount"}
           </button>
         </div>
         <div {...divStyle}>

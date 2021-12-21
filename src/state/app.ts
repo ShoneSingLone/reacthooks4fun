@@ -28,13 +28,13 @@ export function useStateApp() {
   return state_app;
 }
 
-useStateApp.actions = {
+useStateApp.mutations = {
   addCount() {
     state_app.b1.b2.a3++;
   },
 };
 
-useStateApp.mutations = {
+useStateApp.actions = {
   async addCount() {
     state_app.isLoading = true;
     await _sleep(1000);

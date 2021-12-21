@@ -5,8 +5,8 @@ import { Button } from "@alicloudfe/components";
 
 export default (props: { async: boolean }) => {
   const clickHandler = props.async
-    ? useStateApp.mutations.addCount
-    : useStateApp.actions.addCount;
+    ? useStateApp.actions.addCount
+    : useStateApp.mutations.addCount;
 
   /* 观光 */
   const StateApp = aBus<t_StateApp>("StateApp");
