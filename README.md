@@ -124,3 +124,7 @@ hooks组件中只根据数据状态来做视图的展示
 ## xItem
 
 ## datagrid
+
+- [ ] state/app 在路由 outlet 里面时区响应
+
+
